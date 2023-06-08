@@ -1,5 +1,5 @@
 import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GameGrid from "./components/GameGrid";
 import GameHeading from "./components/GameHeading";
 import GenreList from "./components/GenreList";
@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
 import "./index.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 export interface GameQuery {
   genreId?: number;
@@ -29,6 +30,7 @@ function App() {
         lg: "250px 1fr",
       }}
     >
+      <ScrollToTop />
       <GridItem area="nav">
         <NavBar
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
