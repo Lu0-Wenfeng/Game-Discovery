@@ -8,10 +8,16 @@ import {
   FaNeos,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiAtari, SiCommodore, SiD3Dotjs, SiNintendo, SiSega } from "react-icons/si";
+import {
+  SiAtari,
+  SiCommodore,
+  SiD3Dotjs,
+  SiNintendo,
+  SiSega,
+} from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
-import { Platform } from "../hooks/usePlatforms";
+import { Platform } from "../entities/Platform";
 import { IconType } from "react-icons";
 
 interface Props {
@@ -33,11 +39,11 @@ const PlatformIconLists = ({ platforms }: Props) => {
     "commodore-amiga": SiCommodore,
     "3do": SiD3Dotjs,
     "Neo Geo": FaNeos,
-    atari: SiAtari
+    atari: SiAtari,
   };
 
   return (
-    <HStack wrap='wrap' marginY={"10px"}>
+    <HStack wrap="wrap" marginY={"10px"}>
       {platforms.map((platform, index) => (
         <Icon as={iconMap[platform.slug]} color="gray.500" key={index} />
       ))}
