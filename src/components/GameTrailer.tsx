@@ -1,6 +1,5 @@
-import React from "react";
+import { Heading, Text } from "@chakra-ui/react";
 import useTrailers from "../hooks/useTrailers";
-import { useParams } from "react-router-dom";
 
 interface Props {
   gameId: number;
@@ -13,9 +12,21 @@ const GameTrailer = ({ gameId }: Props) => {
   if (error) throw error;
 
   const first = data?.results[0];
-  return first ? (
-    <video src={first.data[480]} poster={first.preview} controls />
-  ) : null;
+  return (
+    <>
+      <Heading as="h3" size="lg" marginBottom={3}>
+        Trailer
+      </Heading>
+      {first ? (
+        <video src={first.data[480]} poster={first.preview} controls />
+      ) : (
+        <Text>
+          From developer: due to I'm using the free API, only GTA V has trailer,
+          sorry.
+        </Text>
+      )}
+    </>
+  );
 };
 
 export default GameTrailer;
